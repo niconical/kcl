@@ -46,6 +46,7 @@ pub unsafe extern "C" fn _kcl_run(
     option_keys: *const *const kclvm_char_t,
     option_values: *const *const kclvm_char_t,
     strict_range_check: i32,
+    show_hidden: i32,
     disable_none: i32,
     disable_schema_check: i32,
     list_option_mode: i32,
@@ -71,6 +72,7 @@ pub unsafe extern "C" fn _kcl_run(
             option_keys,
             option_values,
             strict_range_check,
+            show_hidden,
             disable_none,
             disable_schema_check,
             list_option_mode,
@@ -126,6 +128,7 @@ unsafe fn _kcl_run_in_closure(
     option_keys: *const *const kclvm_char_t,
     option_values: *const *const kclvm_char_t,
     strict_range_check: i32,
+    show_hidden: i32,
     disable_none: i32,
     disable_schema_check: i32,
     list_option_mode: i32,
@@ -139,6 +142,7 @@ unsafe fn _kcl_run_in_closure(
         as *const extern "C" fn(ctx: *mut kclvm_context_t) -> *mut kclvm_value_ref_t;
 
     kclvm_context_set_strict_range_check(ctx, strict_range_check as kclvm_bool_t);
+    kclvm_context_set_show_hidden(ctx, show_hidden as kclvm_bool_t);
     kclvm_context_set_disable_none(ctx, disable_none as kclvm_bool_t);
     kclvm_context_set_disable_schema_check(ctx, disable_schema_check as kclvm_bool_t);
     kclvm_context_set_list_option_mode(ctx, list_option_mode as kclvm_bool_t);

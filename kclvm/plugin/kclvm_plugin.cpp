@@ -45,6 +45,7 @@ std::string _kclvm_plugin_AppContextBase::_run_app(
     uint64_t _start_fn_ptr,
     uint64_t _kclvm_main_ptr, // main.k => kclvm_main
     int32_t strict_range_check,
+    int32_t show_hidden,
     int32_t disable_none,
     int32_t disable_schema_check,
     int32_t list_option_mode,
@@ -57,6 +58,7 @@ std::string _kclvm_plugin_AppContextBase::_run_app(
         const char** option_keys,
         const char** option_values,
         int32_t strict_range_check,
+        int32_t show_hidden,
         int32_t disable_none,
         int32_t disable_schema_check,
         int32_t list_option_mode,
@@ -94,6 +96,7 @@ std::string _kclvm_plugin_AppContextBase::_run_app(
         (const char**)(_option_keys.data()),
         (const char**)(_option_values.data()),
         strict_range_check,
+        show_hidden,
         disable_none,
         disable_schema_check,
         list_option_mode,

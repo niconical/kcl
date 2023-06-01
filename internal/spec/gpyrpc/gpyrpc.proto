@@ -140,6 +140,9 @@ message ExecProgram_Args {
 	bool sort_keys = 12;
 	// include schema type path in JSON/YAML result
 	bool include_schema_type_path = 13;
+
+    // -H --show_hidden
+    bool show_hidden = 14;
 }
 message ExecProgram_Result {
 	string json_result = 1;
@@ -264,6 +267,7 @@ message CliConfig {
 	int64 verbose = 7;
 	bool debug = 8;
 	bool sort_keys = 9;
+    bool show_hidden = 10;
 }
 
 message KeyValuePair {

@@ -62,6 +62,7 @@ fn test_kclvm_manifests_yaml_stream() {
         let mut ctx = Context::default();
         let opts = ValueRef::dict(Some(&[
             ("sort_keys", &ValueRef::bool(opts.sort_keys)),
+            ("show_hidden", &ValueRef::bool(opts.show_hidden)),
             ("ignore_private", &ValueRef::bool(opts.ignore_private)),
             ("ignore_none", &ValueRef::bool(opts.ignore_none)),
             ("sep", &ValueRef::str(&opts.sep)),

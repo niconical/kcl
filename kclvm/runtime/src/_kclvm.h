@@ -256,6 +256,8 @@ void kclvm_context_set_list_option_mode(kclvm_context_t* p, kclvm_bool_t v);
 
 void kclvm_context_set_strict_range_check(kclvm_context_t* p, kclvm_bool_t v);
 
+void kclvm_context_set_show_hidden(kclvm_context_t* p, kclvm_bool_t v);
+
 void kclvm_context_symbol_init(kclvm_context_t* p, kclvm_size_t n, kclvm_char_t** symbol_names);
 
 kclvm_char_t* kclvm_context_symbol_name(kclvm_context_t* p, kclvm_size_t i);

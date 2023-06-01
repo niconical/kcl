@@ -29,6 +29,7 @@ public:
         uint64_t _start_fn_ptr,
         uint64_t _kclvm_main_ptr, // main.k => kclvm_main
         int32_t strict_range_check,
+        int32_t show_hidden,
         int32_t disable_none,
         int32_t disable_schema_check,
         int32_t list_option_mode,
@@ -106,6 +107,7 @@ class AppContext(_kclvm_plugin_AppContextBase):
     def RunApp(self, *,
         start_func_name='_kcl_run',
         strict_range_check=None,
+        show_hidden=None,
         disable_none=None,
         disable_schema_check=None,
         list_option_mode=None,
@@ -135,6 +137,10 @@ class AppContext(_kclvm_plugin_AppContextBase):
             strict_range_check = 1
         else:
             strict_range_check = 0
+        if show_hidden:
+            show_hidden = 1
+        else:
+            show_hidden = 0
 
         if disable_schema_check:
             disable_schema_check = 1
@@ -153,6 +159,7 @@ class AppContext(_kclvm_plugin_AppContextBase):
 
         json_result = self._run_app(_start_ptr, _kclvm_main_ptr,
             strict_range_check,
+            show_hidden,
             disable_none,
             disable_schema_check,
             list_option_mode,

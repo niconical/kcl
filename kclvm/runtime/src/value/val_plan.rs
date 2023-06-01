@@ -197,10 +197,12 @@ impl ValueRef {
     pub fn plan(&self, sort_keys: bool) -> (String, String) {
         let json_opt = JsonEncodeOptions {
             sort_keys,
+            // TODO: add show_hidden?
             ..Default::default()
         };
         let yaml_opt = YamlEncodeOptions {
             sort_keys,
+            // TODO: add show_hidden?
             ..Default::default()
         };
         if self.is_list_or_config() {

@@ -49,6 +49,8 @@ pub struct ExecProgramArgs {
     pub debug: i32,
     // yaml/json: sort keys
     pub sort_keys: bool,
+    // -H --show-hidden
+    pub show_hidden: bool,
     // include schema type path in JSON/YAML result
     pub include_schema_type_path: bool,
     // plugin_agent is the address of plugin.
@@ -109,6 +111,7 @@ impl TryFrom<SettingsFile> for ExecProgramArgs {
             args.verbose = cli_configs.verbose.unwrap_or_default() as i32;
             args.debug = cli_configs.debug.unwrap_or_default() as i32;
             args.sort_keys = cli_configs.sort_keys.unwrap_or_default();
+            args.show_hidden = cli_configs.show_hidden.unwrap_or_default();
             for override_str in &cli_configs.overrides.unwrap_or_default() {
                 args.overrides.push(parse_override_spec(override_str)?);
             }
@@ -213,6 +216,7 @@ impl KclvmRunner {
                 option_keys: *const *const kclvm_char_t,
                 option_values: *const *const kclvm_char_t,
                 strict_range_check: i32,
+                show_hidden: i32,
                 disable_none: i32,
                 disable_schema_check: i32,
                 list_option_mode: i32,
@@ -260,6 +264,7 @@ impl KclvmRunner {
         let option_values = p;
 
         let strict_range_check = args.strict_range_check as i32;
+        let show_hidden = args.show_hidden as i32;
         let disable_none = args.disable_none as i32;
         let disable_schema_check = 0; // todo
         let list_option_mode = 0; // todo
@@ -279,6 +284,7 @@ impl KclvmRunner {
             option_keys,
             option_values,
             strict_range_check,
+            show_hidden,
             disable_none,
             disable_schema_check,
             list_option_mode,

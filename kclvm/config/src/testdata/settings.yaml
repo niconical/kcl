@@ -8,6 +8,7 @@ kcl_cli_configs:
   strict_range_check: false
   debug: false
   sort_keys: true
+  show_hidden: false
 kcl_options:
   - key: app-name
     value: kclvm

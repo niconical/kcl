@@ -60,6 +60,7 @@ pub struct Config {
     pub verbose: Option<u32>,
     pub debug: Option<bool>,
     pub sort_keys: Option<bool>,
+    pub show_hidden: Option<bool>,
     // kclvm needs a mapping between the package name and the package path
     // to determine the source code path corresponding to different version package.
     pub package_maps: Option<HashMap<String, String>>,
@@ -79,6 +80,7 @@ impl SettingsFile {
                 verbose: Some(0),
                 debug: Some(false),
                 sort_keys: Some(false),
+                show_hidden: Some(false),
                 package_maps: Some(HashMap::default()),
             }),
             kcl_options: Some(vec![]),
@@ -376,6 +378,7 @@ pub fn merge_settings(settings: &[SettingsFile]) -> SettingsFile {
                 set_if!(result_kcl_cli_configs, verbose, kcl_cli_configs);
                 set_if!(result_kcl_cli_configs, debug, kcl_cli_configs);
                 set_if!(result_kcl_cli_configs, sort_keys, kcl_cli_configs);
+                set_if!(result_kcl_cli_configs, show_hidden, kcl_cli_configs);
                 set_if!(result_kcl_cli_configs, package_maps, kcl_cli_configs);
             }
         }
@@ -417,6 +420,7 @@ mod settings_test {
             assert!(kcl_cli_configs.debug.is_some());
             assert!(kcl_cli_configs.path_selector.is_none());
             assert!(kcl_cli_configs.overrides.is_none());
+            assert!(kcl_cli_configs.show_hidden.is_some());
             assert_eq!(kcl_cli_configs.sort_keys, Some(true));
             if let Some(config_files) = kcl_cli_configs.files {
                 assert!(config_files == files);
@@ -442,6 +446,7 @@ mod settings_test {
             assert!(kcl_cli_configs.files.is_some());
             assert!(kcl_cli_configs.disable_none.is_some());
             assert!(kcl_cli_configs.strict_range_check.is_some());
+            assert!(kcl_cli_configs.show_hidden.is_some()); // TODO: fix #536 right?
             assert!(kcl_cli_configs.debug.is_some());
             assert!(kcl_cli_configs.path_selector.is_some());
             assert!(kcl_cli_configs.overrides.is_some());

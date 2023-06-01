@@ -110,6 +110,10 @@
 // api-spec(c):    void kclvm_context_set_strict_range_check(kclvm_context_t* p, kclvm_bool_t v);
 // api-spec(llvm): declare void @kclvm_context_set_strict_range_check(%kclvm_context_t* %p, %kclvm_bool_t %v);
 
+// api-spec:       kclvm_context_set_show_hidden
+// api-spec(c):    void kclvm_context_set_show_hidden(kclvm_context_t* p, kclvm_bool_t v);
+// api-spec(llvm): declare void @kclvm_context_set_show_hidden(%kclvm_context_t* %p, %kclvm_bool_t %v);
+
 // api-spec:       kclvm_context_set_disable_none
 // api-spec(c):    void kclvm_context_set_disable_none(kclvm_context_t* p, kclvm_bool_t v);
 // api-spec(llvm): declare void @kclvm_context_set_disable_none(%kclvm_context_t* %p, %kclvm_bool_t %v);

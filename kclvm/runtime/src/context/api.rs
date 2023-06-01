@@ -289,6 +289,16 @@ pub unsafe extern "C" fn kclvm_context_set_strict_range_check(
 
 #[no_mangle]
 #[runtime_fn]
+pub unsafe extern "C" fn kclvm_context_set_show_hidden(
+    p: *mut kclvm_context_t,
+    v: kclvm_bool_t,
+) {
+    let p = mut_ptr_as_ref(p);
+    p.cfg.show_hidden = v != 0;
+}
+
+#[no_mangle]
+#[runtime_fn]
 pub unsafe extern "C" fn kclvm_context_set_disable_none(p: *mut kclvm_context_t, v: kclvm_bool_t) {
     let p = mut_ptr_as_ref(p);
     p.cfg.disable_none = v != 0;

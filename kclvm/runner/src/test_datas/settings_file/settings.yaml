@@ -4,6 +4,7 @@ kcl_cli_configs:
     - ./before/base.k
     - ./main.k
     - ./sub/sub.k
+  show_hidden: false
   disable_none: false
   strict_range_check: false
   debug: false

@@ -114,6 +114,7 @@ pub enum ApiFunc {
     kclvm_context_set_kcl_pkgpath,
     kclvm_context_set_list_option_mode,
     kclvm_context_set_strict_range_check,
+    kclvm_context_ste_show_hidden,
     kclvm_context_symbol_init,
     kclvm_context_symbol_name,
     kclvm_context_symbol_num,

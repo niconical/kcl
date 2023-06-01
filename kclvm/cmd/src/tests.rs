@@ -35,6 +35,10 @@ fn test_build_settings() {
         Some(true)
     );
     assert_eq!(
+        s.settings().kcl_cli_configs.as_ref().unwrap().show_hidden,
+        Some(true)
+    );
+    assert_eq!(
         s.settings().kcl_cli_configs.as_ref().unwrap().overrides,
         Some(vec!["c.a=1".to_string(), "c.b=1".to_string(),])
     );

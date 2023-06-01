@@ -326,6 +326,8 @@ pub struct ContextConfig {
     pub disable_none: bool,
     pub disable_schema_check: bool,
 
+    pub show_hidden: bool,
+
     pub list_option_mode: bool,
 }
 

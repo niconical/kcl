@@ -2,3 +2,4 @@ kcl_cli_configs:
   files:
     - hello.k
   disable_none: true
+  show_hidden: true
